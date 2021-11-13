@@ -51,8 +51,8 @@ def calc_ways(steps: List[int], total: int, **kwargs) -> List[List[int]]:
 
 
 if __name__ == "__main__":
-    steps = [1, 3, 5]
-    N = 5
+    steps = [1, 2]
+    N = 4
     ways = calc_ways(steps, N)
-    ways.sort(key=lambda x: len(x))
+    ways.sort(key=lambda x: len(x), reverse=True)
     print(ways)
