@@ -31,7 +31,6 @@ def calc_ways(steps: List[int], total: int, **kwargs) -> List[List[int]]:
     ways_list: List[List[int]] = list()
     for value in steps:
         choice.append(value)
-        print(choice)
         isGreater = check_value(choice, total)
         if (value == total or isGreater == 0):
             if len(choice) != 0:
@@ -52,6 +51,6 @@ def calc_ways(steps: List[int], total: int, **kwargs) -> List[List[int]]:
 
 
 if __name__ == "__main__":
-    steps = [1, 2, 3, 5,  7]
-    N = 7
+    steps = [1, 3, 5]
+    N = 4
     print(calc_ways(steps, N))
