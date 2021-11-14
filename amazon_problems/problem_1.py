@@ -27,12 +27,11 @@ def check_value(arr_of_item: List[int], steps: int) -> -1 | 0 | 1:
 
 def calc_ways(steps: List[int], total: int, **kwargs) -> List[List[int]]:
     choice: List[int] = kwargs.get("__choice") or []
-    steps.sort()
     ways_list: List[List[int]] = list()
     for value in steps:
         choice.append(value)
         isGreater = check_value(choice, total)
-        if (value == total or isGreater == 0):
+        if isGreater == 0:
             if len(choice) != 0:
                 ways_list.append(choice.copy())
             choice.pop()
@@ -51,8 +50,9 @@ def calc_ways(steps: List[int], total: int, **kwargs) -> List[List[int]]:
 
 
 if __name__ == "__main__":
-    steps = [1, 2]
-    N = 4
+    steps = [1, 3, 5]
+    N = 5
+    steps.sort()
     ways = calc_ways(steps, N)
     ways.sort(key=lambda x: len(x), reverse=True)
     print(ways)
